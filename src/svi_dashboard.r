@@ -53,8 +53,8 @@ server <- function(input, output) {
 
         plot(x_var, y_var, main = "Scatterplot", xlab = paste(ifelse(input$log_transform_x, "Log of", ""), input$scatter_x_variable), ylab = paste(ifelse(input$log_transform_y, "Log of", ""), input$scatter_y_variable))
         abline(lm_model, col = "red")
-        text(x = mean(x_var), y = mean(y_var), labels = formula_text, pos = 3, cex = 1.2)
-    })
+            text(x = 0, y = max(y_var)/2, labels = formula_text, pos = 3, cex = 1.2,, srt=90)
+        })
 
     output$output_table <- renderTable({  # Fix output table name
         x_var <- data[[input$scatter_x_variable]]
